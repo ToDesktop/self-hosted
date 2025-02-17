@@ -52,3 +52,7 @@ Now every time you create a release on ToDesktop, the following will happen:
 2. It will upload the artifacts to the `desktop-app-distributables-staging` R2 bucket
 3. It will create a pull request on the `self-hosted` repo with details of the release
 4. If you choose to merge the PR, the artifacts will be uploaded to the `desktop-app-distributables` R2 bucket and your release will go live
+
+![Sequence Diagram](./docs/sequence-diagram.svg)
+
+![Screenshot of a PR to release new version](https://media.cleanshot.cloud/media/42811/iTPbQub2zeCBnuGiKaOCz9GkeXFosGINno5vYsWn.jpeg?Expires=1739830695&Signature=p4dt8Fa2sEdWrUE65Bo73hQjWMEb~g38Uh~9mW3UkRVpVqQsYbVHAksfYd-HKGYRzJhZRXQX-y7S0MPrjGf893lPysmKGf22Hy-qIUnSi7qmA~WYnEWxHXUETwI~tx~5HMvjQfRNT-LVSKXIfqAG4iTmX7JvvfcpAvdHX~1h8ohEZjhrndw64IPEWpsyoDOkw6N2l2jphbyoZcLKgUY-1Kjm4DylWr-UEJOwc6LDwwNpTjdaVxLI4-Usbi4FXAKLf5kXCL3t1ZAs~tx3evENHtJbl82E-~-tOiWj~hOhOwugbyTjjx73qZ2V~pKMF08rvnIEfrjRfaaT9KrcIXorhw__&Key-Pair-Id=K269JMAT9ZF4GZ)
