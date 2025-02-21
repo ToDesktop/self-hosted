@@ -57,4 +57,4 @@ See [desktop-download-cdn/README.md](packages/desktop-download-cdn/README.md) fo
 
 ![Sequence Diagram](./docs/sequence-diagram.svg)
 
-![Screenshot of a PR to release new version](https://media.cleanshot.cloud/media/42811/iTPbQub2zeCBnuGiKaOCz9GkeXFosGINno5vYsWn.jpeg?Expires=1739830695&Signature=p4dt8Fa2sEdWrUE65Bo73hQjWMEb~g38Uh~9mW3UkRVpVqQsYbVHAksfYd-HKGYRzJhZRXQX-y7S0MPrjGf893lPysmKGf22Hy-qIUnSi7qmA~WYnEWxHXUETwI~tx~5HMvjQfRNT-LVSKXIfqAG4iTmX7JvvfcpAvdHX~1h8ohEZjhrndw64IPEWpsyoDOkw6N2l2jphbyoZcLKgUY-1Kjm4DylWr-UEJOwc6LDwwNpTjdaVxLI4-Usbi4FXAKLf5kXCL3t1ZAs~tx3evENHtJbl82E-~-tOiWj~hOhOwugbyTjjx73qZ2V~pKMF08rvnIEfrjRfaaT9KrcIXorhw__&Key-Pair-Id=K269JMAT9ZF4GZ)
+![Screenshot of a PR to release new version](./docs/pr-screenshot.jpeg)
