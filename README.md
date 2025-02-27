@@ -2,6 +2,14 @@
 
 # ToDesktop Self-Hosted
 
+This is a process for releasing to self-hosted infrastructure. It follows the previous TD release process but allows you to have control over the infrastructure that has direct access to your end-users.
+
+## How it works
+
+ToDesktop fires a webhook that is handled by **release-relay** hosted on your infrastructure but code is provided by us.
+The **release-relay** will consume the webhook, verify the payload, transfer the new release to your staging bucket, and create a **PR in your GitHub repository**. You can then manually review and merge the PR to trigger the promotion from the staging to the production bucket.
+You can enable **branch protection rules** in GitHub to require at least one/two specific reviewers (e.g., security lead or dev lead) to approve PRs before merging.
+
 ## Setup
 
 1. Use an existing Cloudflare account or create a new one
@@ -44,7 +52,7 @@ That's it!
 8. If all looks good, then do a full "Release" of your app on ToDesktop and merge the PR created by the `release-relay` worker.
 9. You may also update your download URLs to point to your `desktop-download-cdn` worker.
 
-## How it works from now on
+## What happens when you create a release?
 
 Now every time you create a release on ToDesktop, the following will happen:
 
@@ -52,6 +60,15 @@ Now every time you create a release on ToDesktop, the following will happen:
 2. It will upload the artifacts to the `desktop-app-distributables-staging` R2 bucket
 3. It will create a pull request on the `self-hosted` repo with details of the release
 4. If you choose to merge the PR, the artifacts will be uploaded to the `desktop-app-distributables` R2 bucket and your release will go live
+
+# Secrets & Where They Go
+
+| Secret Name                                                | Where It's Stored                   | Used By       | Permissions Needed                                                                        |
+| ---------------------------------------------------------- | ----------------------------------- | ------------- | ----------------------------------------------------------------------------------------- |
+| **Cloudflare R2 Staging API Key**                          | Binding in `wrangler.toml`          | release-relay | `write` access to `desktop-app-distributables-staging`                                    |
+| **GitHub Token**                                           | Stored in release-relay as a secret | release-relay | `write` access to your GitHub repo                                                        |
+| **Webhook Secret**                                         | Stored in release-relay as a secret | release-relay | `read` from ToDesktop                                                                     |
+| **GitHub Action Secret: Cloudflare R2 Production API Key** | Stored in GitHub Actions Secrets    | GitHub Action | `read` from `desktop-app-distributables-staging`, `write` to `desktop-app-distributables` |
 
 See [desktop-download-cdn/README.md](packages/desktop-download-cdn/README.md) for more details on how the download CDN works and available routes.
 
