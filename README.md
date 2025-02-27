@@ -61,6 +61,15 @@ Now every time you create a release on ToDesktop, the following will happen:
 3. It will create a pull request on the `self-hosted` repo with details of the release
 4. If you choose to merge the PR, the artifacts will be uploaded to the `desktop-app-distributables` R2 bucket and your release will go live
 
+## Components overview
+
+There are three key Cloudflare Workers involved in this process and one GitHub action:
+
+1. **release-relay worker** – Handles incoming webhooks from ToDesktop, verifies metadata, initiates the file transfer process to staging bucket and creates the PR.
+2. **GitHub action** – Triggered on merge of PR and is responsible for safely copying files from the staging bucket to the production bucket
+3. **desktop-cdn worker** – Serves updates to end-users from production bucket.
+4. **desktop-download-cdn worker** – Serves downloads to end-users from production bucket.
+
 # Secrets & Where They Go
 
 | Secret Name                                                | Where It's Stored                   | Used By       | Permissions Needed                                                                        |
